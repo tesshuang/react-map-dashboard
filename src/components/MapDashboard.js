@@ -54,9 +54,14 @@ export default function MapDashboard () {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {coronaData.map(data => (
-        <Marker position={[data.countryInfo.lat, data.countryInfo.long]} key={data.countryInfo._id} icon={virusIcon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+        <Marker position={[data.countryInfo.lat, data.countryInfo.long]} key={data.country} icon={virusIcon}>
+          <Popup className='pop-up'>
+            <h5 style={{ display: 'inline', marginRight: '5px'}}>{data.country}</h5>
+            <img src={data.countryInfo.flag} style={{ width: '20px'}} alt={data.country}/>
+            <p>Total cases: <b>{data.cases}</b></p>
+            <p>New cases of today: <b>{data.todayCases}</b></p>
+            <p>Total death: <b>{data.deaths}</b></p>
+            <p>Total recovered: <b>{data.recovered}</b></p>
           </Popup>
         </Marker>))
       }
