@@ -3,15 +3,15 @@ import L from 'leaflet'
 import { Map, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import { fetchData } from '../api/fetch'
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-let DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow
+export const virusIcon = new L.Icon({
+  iconUrl: require("../images/ic_virus.svg"),
+  iconRetinaUrl: require("../images/ic_virus.svg"),
+  iconSize: [30, 30],
+  shadowUrl: require('../images/shadow.png'),
+  shadowSize: [35, 35],
 });
 
-L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function MapDashboard () {
   const [coronaData, setCoronaData] = React.useState(null)
@@ -54,7 +54,7 @@ export default function MapDashboard () {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {coronaData.map(data => (
-        <Marker position={[data.countryInfo.lat, data.countryInfo.long]} key={data.countryInfo._id}>
+        <Marker position={[data.countryInfo.lat, data.countryInfo.long]} key={data.countryInfo._id} icon={virusIcon}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
