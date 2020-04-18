@@ -2,8 +2,6 @@ import React from 'react'
 import L from 'leaflet'
 import { Map, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
-import { fetchData } from '../api/fetch'
-import Loading from "./Loading";
 
 export const virusIcon = new L.Icon({
   iconUrl: require("../images/ic_virus.svg"),
@@ -14,40 +12,13 @@ export const virusIcon = new L.Icon({
 });
 
 
-export default function MapDashboard () {
-  const [coronaData, setCoronaData] = React.useState(null)
-  const [error, setError] = React.useState(null)
-  const [loading, setLoading] = React.useState(true)
-
+export default function MapDashboard ({ coronaData }) {
   const location = {
     lat: 51.505,
     lng: -0.09,
     zoom: 3,
   }
 
-  React.useEffect(() => {
-    fetchData()
-      .then(data => {
-        setCoronaData(data)
-        setLoading(false)
-        setError(null)
-      })
-      .catch(e => {
-        console.warn(e)
-        setError('Sorry, can not fetch the latest data.')
-        setLoading(false)
-      })
-  }, [])
-
-  if(loading) {
-    return <Loading />
-  }
-
-  if(error) {
-    return <div style={{height: '100vh'}}>{error}</div>
-  }
-
-  console.log(coronaData);
   return (
     <Map center={[location.lat, location.lng]} zoom={location.zoom} style={{ width: '65vw'}}>
       <TileLayer
