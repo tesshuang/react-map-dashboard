@@ -34,6 +34,7 @@ export default function MapDashboard ({ coronaData }) {
             <p>New cases of today: <b>{data.todayCases}</b></p>
             <p>Total death: <b>{data.deaths}</b></p>
             <p>Total recovered: <b>{data.recovered}</b></p>
+            <p>Last Update: {new Date(data.updated).toLocaleDateString("en-US")}</p>
           </Popup>
         </Marker>))
       }
