@@ -36,7 +36,7 @@ function App() {
         {coronaData && 
           <React.Fragment>
             <MapDashboard coronaData={coronaData}/>
-            <Analytics />
+            <Analytics coronaData={coronaData}/>
           </React.Fragment>}
       </div>
       <footer>
