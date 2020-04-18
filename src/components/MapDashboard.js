@@ -49,7 +49,7 @@ export default function MapDashboard () {
 
   console.log(coronaData);
   return (
-    <Map center={[location.lat, location.lng]} zoom={location.zoom} style={{height: '100vh'}}>
+    <Map center={[location.lat, location.lng]} zoom={location.zoom} style={{ width: '65vw'}}>
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
