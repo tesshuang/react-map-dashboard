@@ -35,3 +35,12 @@ footer {
 .leaflet-popup-content p {
   margin: 10px 0 !important;
 }
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+}
