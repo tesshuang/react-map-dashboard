@@ -5,7 +5,6 @@ export default function Loading () {
 
   React.useEffect(() => {
     const id = setTimeout(() => {
-      console.log(dot)
       dot !== '...' ? setDot(d => d += '.') : setDot('.')
     }, 500)
 
