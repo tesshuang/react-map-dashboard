@@ -3,6 +3,7 @@ import L from 'leaflet'
 import { Map, TileLayer, Marker, Popup  } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import { fetchData } from '../api/fetch'
+import Loading from "./Loading";
 
 export const virusIcon = new L.Icon({
   iconUrl: require("../images/ic_virus.svg"),
@@ -39,7 +40,7 @@ export default function MapDashboard () {
   }, [])
 
   if(loading) {
-    return <div style={{height: '100vh'}}>Fetching data...</div>
+    return <Loading />
   }
 
   if(error) {
