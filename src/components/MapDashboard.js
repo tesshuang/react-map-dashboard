@@ -20,7 +20,7 @@ export default function MapDashboard ({ coronaData }) {
   }
 
   return (
-    <Map center={[location.lat, location.lng]} zoom={location.zoom} style={{ width: '65vw'}}>
+    <Map center={[location.lat, location.lng]} zoom={location.zoom} style={{ width: '70vw'}}>
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

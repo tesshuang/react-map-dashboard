@@ -28,9 +28,9 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
-      <div className="content">
+      <div className='content'>
         {loading && <Loading />}
         {error && <div style={{height: '100vh'}}>{error}</div>}
         {coronaData && 
@@ -40,7 +40,7 @@ function App() {
           </React.Fragment>}
       </div>
       <footer>
-        {`@${new Date().getFullYear()} Built by Tess.`}
+        {`Stay apart & Stay safe. @${new Date().getFullYear()} Built by Tess.`}
       </footer>
     </div>
   );
